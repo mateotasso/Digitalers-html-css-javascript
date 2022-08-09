@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+
+<body>
+    <!--los eventos son algo que les pasa a los elementos html-->
+    <!--en este caso al hacer click en el boton se dispara una alerta-->
+    <button onclick="alert('hola me hiciste click')"> Hace click </button>
+    <!-- otros ejemplos-->
+    <button onmouseover="alert('hola me pasaste el mouse por encima')">Acerca el cursor</button>
+    <button onmouseout="alert('aleja el cursor')">aleja el cursor</button>
+    <button onmousemove="alert('mové el cursor del mouse sobre mí')">Mové el cursor</button>
+
+    <!--también podemos utilziar eventos relacionados con el teclado-->
+    <input type="text" onchange="alert('haz hecho un cambio en la caja')">
+    <input type="text" onblur="alert('haz dejado de hacer foco en la caja')">
+    <input type="text" onfocus="alert('haz hecho foco en la caja')">
+    <input type="text" onkeypress="alert('haz presionado una tecla dentro de la caja')">
+    <input type="text" onkeyup="alert('haz dejado de presionar una tecla dentro de la caja')">
+
+    <!--también hay diferentes formas de trabajarlo. En este caso fue desde html pero podemos hacerlo desde javascript-->
+
+    <script>
+        //de esta forma se llama a la funcion alerta cuando se hace click en el boton
+        document.querySelector('button').onclick = alerta;
+        function alerta() {
+            alert('eventos desde el código')
+        }
+
+        //eventos con parámetros
+
+        function saludarA(nombre) {
+            alert('Hola ' + nombre);
+        }
+
+    </script>
+    <!--saludamos a ana a través de la funcion declarada en el script-->
+
+    <button onclick="saludarA('Ana')">Ana</button>
+
+    <!--Lo interesante es que podemos reutilizar esa
+        misma función para diferentes botones y
+        pasarle a la misma distintos datos según lo
+        necesitemos. Por ejemplo:-->
+
+    <button onclick="saludarA('Lucia')">Lucia</button>
+    <button onclick="saludarA('Pedro')">Pedro</button>
+    <button onclick="saludarA('Pepe')">Pepe</button>
+
+    <!--En pos de seguir optimizando el código podemos hacer lo siguiente-->
+    <!--Generamos 4 botones-->
+    <button>Ana</button>
+    <button>Pedro</button>
+    <button>Juan</button>
+    <button>Maria</button>
+
+    <script>
+        /*traemos los botones a javascript a traves del tag (etiqueta), de esta
+        forma tomamos todos los existentes y los asignamos a la variable boton*/
+        var boton = document.getElementsByTagName('button');
+
+        /*Ahora para individualizarlos y que cada uno haga algo hacemos un ciclo for
+        que recorra los button y traemos el evento onclick y le asignamos la funcion saludarA */
+        for (let i = 0; i < boton.length; i++) {
+
+            /*La idea es que pasemos el texto contenido en cada
+            botón. Por esa razón lo hacemos con innerHTML, que
+            trabaja obteniendo el texto del botón.
+            Como lo hacemos dentro del for, el innerHTML será
+            diferente según sobre qué botón hagamos clic.
+            Por otro lado, debemos pasar esto como parámetro.
+            Por lo tanto, lo hacemos con la siguiente sintaxis*/
+
+            boton[i].onclick = function () { saludarA(this.innerHTML) }
+
+        }
+
+        /*luego formamos una funcion para saludar que contenga el alert 'hola'*/
+
+        function saludarA(nombre) {
+            alert(nombre);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

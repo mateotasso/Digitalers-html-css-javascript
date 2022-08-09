@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio: eventos y funciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <h2>Ejercicio: eventos y funciones</h2>
+    <button class="btn btn-success">C# .Net</button>
+    <button class="btn btn-warning">Java</button>
+    <button class="btn btn-danger">Javascript</button>
+    <button class="btn btn-info">Visual Basic</button>
+
+    <div id="lenguaje">
+
+    </div>
+    <script>
+
+        var botonera = document.getElementsByTagName('button');
+        console.log('cantidad de botones: ' + botonera.length);
+
+        for (let i = 0; i < botonera.length; i++) {
+            botonera[i].onclick = function () { //asignacion de una funcion anonima
+                console.log('Valor seleccionado: ' + botonera[i]);
+                mostrarLenguaje(botonera[i].innerHTML) /*llamamos a la funcion y le pasamos como argumento 
+                                                        el nombre del lenguaje a traves del array. LLamo a 
+                                                        mostrarLenguaje y le paso como argumento el texto del boton.
+                                                        el texto del boton entra a la funcion mostrarLenguaje lo concatena y crea el h2*/
+            }
+
+        }
+
+        /* a continuacion creamos una funcion que recibe como argumento (lenguaje).
+         Este procedimiento toma a traves del id 'lenguaje' que es un div y en su 
+         propiedad .innerHTML va a generar un titulo <h2>*/
+        function mostrarLenguaje(lenguaje) {
+            document.getElementById('lenguaje').innerHTML = '<h2>Lenguaje seleccionado: ' + lenguaje + '</2>'
+        }
+    </script>
+</body>
+
+</html>

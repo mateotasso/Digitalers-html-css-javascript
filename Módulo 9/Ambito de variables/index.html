@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambito de las variables</title>
+</head>
+
+<body>
+    <h1>Ambito de las Variables</h1>
+
+    <script>
+
+        var nombre = prompt("Ingrese nombre: ");
+        var marca = prompt("Ingrese marca: ");
+        var precio = prompt("Ingrese precio: ");
+
+        MostrarProducto();
+
+        function MostrarProducto() {
+            var impuesto = 1.21;
+            precioConImpuesto = precio * impuesto; // de esta forma la variable, si bien esta en una funcion, se toma como global.
+            var mgs = "El producto " + nombre + " de la marca " + marca + " tiene un precio de $" + precioConImpuesto;
+            document.writeln( mgs );
+        }
+
+        document.writeln("precio sin impuesto: $" + precio);
+        document.writeln("precio con impuesto: $" + precioConImpuesto);
+
+    </script>
+</body>
+
+</html>

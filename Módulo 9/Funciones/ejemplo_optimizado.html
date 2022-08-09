@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion con return</title>
+</head>
+<body>
+
+    <script>
+        /************** LINEA DE EJECUCION PRINCIPAL*********/
+        var descuento = 15;
+        var precio = prompt("ingrese el precio a calcular");
+        
+        
+        calcularIva( precio ); //ya no debemos trabajar con variables
+        calcularDescuento(precio, descuento);
+        
+        mostrarResultado( precioConIva, precioConDesc );
+        /*************LINEA DE EJECUCION FUNCIONAL***********/
+        /*para optimizar aun mas nuestro codigo podemos invocar una funcion a traves
+         de otra funcion*/
+        
+        function calcularIva(pcio) {
+            var total = pcio *1.21; //quitamos el return y asignamos el resultado a una var
+            mostrarResultado(total, "IVA");//invocamos una funcion con la var de parametro
+
+        }
+
+        function calcularDescuento(pcio, desc) {
+            var restar = (pcio * desc) / 100; //lo mismo podemos optimizar aqui
+            var desc = pcio - restar;
+            mostrarResultado(desc, "descuento");
+        }
+
+        //agregamos pcio y tipo de parametros
+        function mostrarResultado(pcio, tipo){ //debemos modificar esta funcion
+            document.write("El precio con " + tipo +  " es de $" + pcio + "<br>");
+            
+
+        }
+        
+    
+    </script>
+
+</body>
+</html>

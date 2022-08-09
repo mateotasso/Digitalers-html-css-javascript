@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcion con return</title>
+</head>
+<body>
+
+    <script>
+        /************** LINEA DE EJECUCION PRINCIPAL*********/
+        var descuento = 15;
+        var precio = prompt("ingrese el precio a calcular");
+        
+        
+        var precioConIva = calcularIva( precio ); //de esta forma el return se guarda en la var
+        var precioConDesc = calcularDescuento(precio, descuento);//de esta forma el return se guarda en la var
+        
+        mostrarResultado( precioConIva, precioConDesc );
+        /*************LINEA DE EJECUCION FUNCIONAL***********/
+        function calcularIva(pcio) {
+            return pcio *1.21;
+
+        }
+
+        function calcularDescuento(pcio, desc) {
+            var restar = (pcio * desc) / 100; //var restar solo existe en el ambito de la funcion
+            return pcio - restar;
+        }
+
+        function mostrarResultado(pcioIva, pcioDesc){
+            document.write("El precio con IVA es de $" + pcioIva + "<br>");
+            document.write("El precio con descuento es de $" + pcioDesc);
+
+        }
+        
+    
+    </script>
+
+</body>
+</html>

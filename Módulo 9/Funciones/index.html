@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones</title>
+</head>
+
+<body>
+    <p id="caja"></p>
+    <script>
+    /*Las funciones son bloques de código que tienen
+    la característica de ser llamados o invocados.
+    La siguiente sería una sintaxis de una función
+    que, por ejemplo, contiene una alerta:*/
+
+        function miFuncion() {
+            alert("Hola estoy dentro de una funcion")
+        }
+    /*no obtendremos nada,
+    porque esa función no ha sido invocada.
+    Para invocar debemos hacer lo siguiente:*/
+
+        miFuncion();
+
+    /*en este caso hemos generado una
+    función que tomará parámetros, es decir,
+    pasamos a esta función determinados datos.*/
+
+            
+
+        function miOperacion(p1, p2) {
+            return p1 * p2;
+        }
+    
+        document.getElementById("caja").innerHTML = miOperacion(4, 3);
+
+    </script>
+</body>
+
+</html>

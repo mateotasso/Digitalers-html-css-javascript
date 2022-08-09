@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /************** LINEA DE EJECUCION PRINCIPAL*********/
+        var descuento = 15;
+        var precio = prompt("ingrese el precio a calcular");
+        
+        //invocamos la funcion y de parametro usamos la var precio cuyo valor se obtiene de prompt
+        calcularIva( precio ); //<-- invocacion a una funcion
+        calcularDescuento(precio, descuento);
+        
+        /* para usar la funcion hay que invocarla colocando su firma
+         (denominacion) con parentesis.*/
+
+        
+
+        /* para volver a hacer este calculo deberiamos repetir
+        el código. Una función haría mucho mas eficiente el código.
+        
+        var precio = prompt("Ingrese el precio a calcular");
+
+        document.write("El precio con IVA es de $" + precio * 1.21);*/
+
+        /*cuando tenemos una accion reconocible y repetitiva
+        en el código debemos crear una funcion. El nombre
+        o firma de las funciones deben tener una clara
+        referencia a la accion que realizan*/
+
+        /* una funcion es un conjunto de comandos que pueden
+        ser ejecutados y reutilizados*/
+
+        /*************LINEA DE EJECUCION FUNCIONAL***********/
+        function calcularIva(pcio) {
+        document.write("El precio con IVA es de $" + pcio * 1.21 + "<br>");
+
+        }
+
+        function calcularDescuento(pcio, desc) {
+            var restar = (pcio * desc) / 100; //var restar solo existe en el ambito de la funcion
+            document.write("El precio con descuento es de $" + (pcio - restar) );
+        }
+
+        
+    
+    </script>
+</body>
+</html>
